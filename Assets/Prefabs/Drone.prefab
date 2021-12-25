@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2099362421796922230}
   m_RootOrder: 0
@@ -46,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  obstacles: []
+  dangerousObstacles: []
+  detectedObjects: []
 --- !u!54 &8248744758957587196
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -106,6 +110,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6735249176084588278}
   m_Father: {fileID: 0}
@@ -130,6 +135,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -172,16 +178,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c182a6df543f54197419ec7584b9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Da: 100
-  Dc: 5
-  Kc: 100
-  Kp: 0.05
+  Da: 200
+  Dc: 50
+  Kc: 15
+  Kp: 0
   ColliderBarrierDiff: 100
   MaxAcceleration: 0.5
   MaxVelocity: 10
   MinVelocity: 1
+  InitialInnerTerritoryRadius: 20
+  InitialOuterTerritoryRadius: 30
+  InnerTerritoryRadiusOffset: 5
+  OuterTerritoryWidth: 10
   NumberOfGuesses: 10
+  ObstacleMaxVelocity: 50
   QPValue: 0
+  flockCenter: {x: 0, y: 0, z: 0}
 --- !u!135 &2198812394775512167
 SphereCollider:
   m_ObjectHideFlags: 0
